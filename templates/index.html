@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block content %}
+<section class="hero"><h1>Descubre tu posición probable</h1><p>Proyección referencial basada en el ranking consolidado y las notas históricas incorporadas.</p></section>
+<form method="post" class="card grid">
+<label>Código de acceso<input name="code" required placeholder="SR360-XXXXXXXX"></label>
+<label>Carrera<select name="career" required><option value="">Selecciona tu carrera</option>{% for c in careers %}<option>{{c}}</option>{% endfor %}</select></label>
+<label>Promedio Ponderado Promocional (PPP)<input name="ppp" type="number" step="0.00001" required></label>
+<label>Nota del Examen SERUMS (NES)<input name="nes" type="number" step="0.00001" required></label>
+<button>CALCULAR MI POSICIÓN</button></form>
+{% if result %}<section class="result"><div>Tu puntaje final</div><strong>{{'%.5f'|format(result.score)}}</strong><div class="line">{{result.career}}</div><h2>PUESTO PROYECTADO</h2><div class="position">#{{result.position}}</div><p>Comparado con {{result.total}} registros del ranking proyectado de tu carrera.</p><small>Resultado referencial y no oficial. La posición puede variar frente a la lista oficial publicada por el MINSA.</small></section>{% endif %}
+<footer>Una buena plaza es producto de una buena preparación.</footer>{% endblock %}
