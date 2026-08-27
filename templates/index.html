@@ -1,5 +1,16 @@
 {% extends 'base.html' %}{% block content %}
-<section class="hero"><h1>Descubre tu posición probable</h1><p>Proyección referencial basada en el ranking consolidado y las notas históricas incorporadas.</p></section>
+</section>
+<section class="hero">
+    <h1>Descubre tu posición probable</h1>
+    <p>Proyección referencial basada en el ranking consolidado y las notas históricas incorporadas.</p>
+</section>
+
+<div class="banner-container">
+    <img src="{{ url_for('static', filename='banner-encaps.jpg') }}"
+         alt="Ciclo ENCAPS 2027-I"
+         class="banner-encaps">
+</div>
+
 <form method="post" class="card grid">
 <label>Código de acceso<input name="code" required placeholder="SR360-XXXXXXXX"></label>
 <label>Carrera<select name="career" required><option value="">Selecciona tu carrera</option>{% for c in careers %}<option>{{c}}</option>{% endfor %}</select></label>
